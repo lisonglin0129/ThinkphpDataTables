@@ -1,0 +1,33 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#"><span>Logo</span></a>
+			<ul class="nav navbar-top-links navbar-right">
+				<li class="dropdown">
+				<span id='times' class="navbar-brand"></span>
+				</li>
+				<li class="dropdown">
+					<a class="dropdown-toggle count-info" href="/loginout">
+						退出
+					</a>
+					<ul class="dropdown-menu dropdown-alerts">
+						<li>
+			
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div><!-- /.container-fluid -->
+</nav>
+<script>
+setInterval(function(){
+	get.Id('times').innerHTML = times.unix_to_datetime(date.getDate()); 
+},1000);
+</script>

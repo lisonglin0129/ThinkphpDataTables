@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<link href="/static/css/bootstrap.min.css" rel="stylesheet">
+<link href="/static/css/datepicker3.css" rel="stylesheet">
+<link href="/static/css/styles.css" rel="stylesheet">
+<link href="/static/css/dataTable/dataTables.bootstrap.css" rel="stylesheet">
+<link href="/static/css/tables.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<link href="/static/cssrgba-fallback.css" rel="stylesheet">
+<script src="/static/js/html5shiv.js"></script>
+<script src="/static/js/respond.min.js"></script>
+<![endif]-->
+<link href="/static/css/tables.css" rel="stylesheet">
+<link href="/index/css/date/lyz.calendar.css" rel="stylesheet" type="text/css" />
+
+<style>
+.calendar .calMain .calTitle .prevMonth{
+	background:url(/index/css/images/date_bg.png) no-repeat 5px -87px;'
+}
+.calendar .calMain .calTitle .nextMonth{
+	background:url(/index/css/images/date_bg.png) no-repeat 6px -157px;
+}
+.calendar .calMain .calContent .tabD th {
+	background: url(/index/css/images/date_bg.png) repeat-x;
+}
+</style>
+<script src="/static/js/jquery-1.11.1.min.js"></script>		
+<script src="/index/js/date/lyz.calendar.min.js" type="text/javascript"></script>
+<script src="/index/js/lib.js" type="text/javascript"></script>	
+	<script>
+	    $(function () {
+	       $("#BeginDate").calendar({
+	            controlId: "startdivDate",                                 // 弹出的日期控件ID，默认: $(this).attr("id") + "Calendar"
+	            speed: 200,                                           // 三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000),默认：200
+	            complement: true,                                     // 是否显示日期或年空白处的前后月的补充,默认：true
+	            readonly: true,                                       // 目标对象是否设为只读，默认：true
+	            upperLimit: new Date(),                               // 日期上限，默认：NaN(不限制)
+	            lowerLimit: new Date("2011/01/01"),                   // 日期下限，默认：NaN(不限制)
+	            width:195,
+	            callback: function () {                               // 点击选择日期后的回调函数
+	          		//var d = new Date();
+	            	//get.Id('dates').value =  get.Id('dates').value  +' ' +d.getHours()+':' + d.getMinutes()+':' + d.getSeconds();
+	            }
+	        }); 
+	        $("#EndDate").calendar({
+	        	 controlId: "enddivDate",  
+	        	 width:195,
+	        });
+	    });
+</script>
+<body>
+	<div class='col-sm-3 col-lg-2 sidebar collapse in' style='height:222px;'></div>
+		<div class='col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main'>
+			<div class="row">
+				<div class="col-lg-12" style='color:#FFF;'>
+
+				
+					<div class="page-header">
+						<div class='table-request'>
+							<div class='table-label'>业务员</div>
+							<div class='table-input'><input type='text' id='clerk' name='clerk' class='form-control' value=''/></div>
+							<div style='clear:both;'></div>
+						</div>
+						<div class='table-request'>
+							<div class='table-label'>录入团队</div>
+							<div class='table-input'><input type='text' id='in_departments' name='in_departments' class='form-control' value=''/></div>		
+						</div>
+						<div class='table-request'>
+							<div class='table-label'>客户姓名</div>
+							<div class='table-input'><input type='text' id='clientele_name' name='clientele_name' class='form-control' value=''/></div>
+							
+						</div>
+						<div class='table-request'>
+							<div class='table-label'>客户微信</div>
+							<div class='table-input'><input type='text' id='clientele_wx' name='clientele_wx' class='form-control' value=''/></div>
+					
+						</div>
+						<div class='table-request'>
+							<div class='table-label'>客户qq</div>
+							<div class='table-input'><input type='text' id='qq' name='qq' class='form-control' value=''/></div>					
+						</div>
+						<div style='clear:both; height:12px;'></div>
+						<div class='table-request'>
+							<div class='table-label'>客户电话</div>
+							<div class='table-input'><input type='text' id='clientele_phone' name='clientele_phone' class='form-control' value=''/></div>					
+						</div>
+						<div class='table-request'>
+							<div class='table-label'>合作时间</div>
+							<div class='table-input'>
+								<input type='text' id='BeginDate' name='BeginDate' class='form-control' value=''>
+							</div>					
+						</div>
+						<div class='table-request'>
+							<div class='table-input'>
+							    <input type='text' id='EndDate' name='EndDate' class='form-control' value=''>
+							</div>					
+						</div>
+						<div class='table-request'>
+							<div class='table-input'>
+							    <input type='button' id='sh' value='搜索' class='btn btn-default margin'>
+							</div>					
+						</div>
+						<div class='table-request'>
+							<div class='table-input'>
+							    <input type='button' id='output' value='导出' class='btn btn-default margin'>					
+							</div>					
+						</div>
+						
+						<div style='clear:both;'></div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-6" style='width:100%;'>
+				<div class="panel panel-default">
+					<div class="panel-heading">进票操作</div>
+					<div class="panel-body " style='width:100%;'>
+						<table id="data" class="table tile" cellspacing="0" width="100%">
+						    <thead>
+							    <tr>
+							    	<th>业务员</th>
+							    	<th>合作日期</th>
+							        <th>客户姓名</th>
+							    	<th>客户电话</th> 	
+							    	<th>客户微信</th>
+							    	<th>客户QQ</th>
+							    	<th>合作资金</th>
+							    	<th>全仓资金</th>
+							    	<th>录入团队</th>
+							    	<th>备注</th>   	
+							    	<th>操作</th>
+							    </tr>
+						    </thead>
+						    <tbody> 
+					
+						    </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>	
+		
+		
+	<script src="/static/js/bootstrap.min.js"></script>
+	<script src="/static/js/chart.min.js"></script>
+	<script src="/static/js/chart-data.js"></script>
+
+	<script src="/static/js/easypiechart.js"></script>
+
+	<script src="/static/js/dataTable/jquery.dataTables.js"></script> <!-- jQuery DataTable -->        
+    <script src="/static/js/table.js"></script>
+	<script src="/static/js/lib.js"></script>
+	<script type="text/javascript" src="/static/js/Buttons/js/dataTables.buttons.js"></script>
+	<script type="text/javascript" src="/static/js/Buttons/js/buttons.flash.js"></script>
+	<script type="text/javascript" src="/static/js/Buttons/js/buttons.html5.js"></script>
+	<script type="text/javascript" src="/static/js/Buttons/js/jszip.js"></script>
+	
+	<script>
+		var table = tables({
+			'id' : 'data',
+			'redraw' :true,
+			'ajax' :{
+				'type':'POST',
+				'url':'/bil/source',
+				'data':function(data){
+					data.qq = $('#qq').val();	
+					data.clerk = $("#clerk").val();
+					data.clientele_phone  = $("#clientele_phone").val();	
+					data.in_departments   = $("#in_departments").val();
+					data.clientele_name  = $("#clientele_name").val();
+					data.clientele_wx = $("#clientele_wx").val();
+				}
+			},
+			'seachInput':false,
+			'columns':[
+			                {"data": "clerk"},
+			                {"data": "date"},
+			                {"data": "clientele_name"},
+			                {"data": "clientele_phone"},
+			                {"data": "clientele_wx"},
+			                {"data": "qq"},
+			                {"data": "clt_price"},
+			                {"data": "all_price"},
+			                {"data": "in_departments"},
+			                {"data": "info"}
+			 ],
+		     'pageLength': 3,//二组数组，第一组数量，
+		     "columnDefs": [{
+		    	 "targets": [10],
+		    	 "render": function(data, type, full) {
+		    		 return "<a href=''>修改</a>|<a href=''>删除</a>";
+			     }
+			 }],
+			 'border':[{
+				 'width' : '1px',
+				 'color' : '#ABCDEF'
+			 }]
+		});		
+		$('#sh').click(function(){
+			table.ajax.reload();
+		});
+		get.Id('output').onclick = function ()
+		{
+			window.location.href='/download';
+		}
+	</script>
+</body>
+</html>

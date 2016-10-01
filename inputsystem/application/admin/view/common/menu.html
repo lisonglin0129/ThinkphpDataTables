@@ -1,0 +1,62 @@
+	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+		<form role="search">
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Search">
+			</div>
+		</form>
+		<ul class='nav menu'>
+			<li class="active"><a href="javascript:gotoPage('http://www.baidu.com');"><span class="glyphicon glyphicon-dashboard"></span> 主面板</a></li>
+			<li class="parent">
+				<a href="javascript:gotoPage('/content')"><span class="glyphicon glyphicon-th"></span>进票操作
+					<span data-toggle="collapse" href="#sub-item-0" class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span> 		
+				</a>
+				<ul class="children collapse" id="sub-item-0">
+					<li>
+						<a class="" href="javascript:gotoPage('/bil')"><span class="glyphicon glyphicon-share-alt"></span> 进票列表</a>
+					</li>
+					<li>
+						<a class="" href="#"><span class="glyphicon glyphicon-share-alt"></span> 添加进票资料</a>
+					</li>
+				</ul>
+			</li>
+			<li class="parent"><a href="javascript:gotoPage('/content')"><span class="glyphicon glyphicon-user"></span> 管理员 
+				 <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span> 
+				</a>
+					<ul class="children collapse" id="sub-item-1">
+					<li>
+						<a class="" href="#"><span class="glyphicon glyphicon-share-alt"></span> 管理员列表</a>
+					</li>
+					<li>
+						<a class="" href="#"><span class="glyphicon glyphicon-share-alt"></span> 添加管理员</a>
+					</li>
+					<li><a class="" href="#"><span class="glyphicon glyphicon-share-alt"></span>已删除的管理员</a>
+					</li>
+					<li><a class="" href="#"><span class="glyphicon glyphicon-share-alt"></span>分配权限</a>
+					</li>
+				</ul>
+			</li>
+			<li class='parent'><a href="charts.html"><span class="glyphicon glyphicon-file"></span> 周总结
+				 <span data-toggle="collapse" href="#sub-item-2" class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span> 	
+				 </a>
+				 <ul class="children collapse" id="sub-item-2">
+					<li>
+						<a class="" href="#">
+							<span class="glyphicon glyphicon-share-alt"></span>周总结列表
+						</a>
+					</li>
+					<li>
+						<a class="" href="#">
+							<span class="glyphicon glyphicon-share-alt"></span> 添加周总结
+						</a>
+					</li>
+					<li>
+						<a class="" href="#">
+							<span class="glyphicon glyphicon-share-alt"></span>回收站
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li><a href="login.html"><span class="glyphicon glyphicon-wrench"></span> 系统设置</a></li>
+			<li><a href="login.html"><span class="glyphicon glyphicon-user"></span> 退出</a></li>
+		</ul>
+	</div><!--/.sidebar-->
